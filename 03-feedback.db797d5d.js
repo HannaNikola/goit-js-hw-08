@@ -1,0 +1,2 @@
+!function(){var e=document.querySelector(".feedback-form"),t=(document.querySelector("input"),document.querySelector("textarea"),document.querySelector("button"),"feedback-form-state"),r={};e.addEventListener("input",(function(e){r[e.target.name]=e.target.value,localStorage.setItem(t,JSON.stringify(r))})),e.addEventListener("submit",(function(o){o.preventDefault(),r.email&&r.message?(console.log(r),alert("Данні успішно відправленні"),e.reset(),localStorage.removeItem(t)):alert(" Поля повинні бути заповнені")}))}();
+//# sourceMappingURL=03-feedback.db797d5d.js.map
