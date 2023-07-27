@@ -21,6 +21,8 @@ function onInput(event) {
 
 }
 
+
+
  function onSubmit (event) {
     event.preventDefault();
     if (inputObject.email && inputObject.message) {
@@ -28,7 +30,7 @@ function onInput(event) {
       alert('Данні успішно відправленні');
       formElement.reset();
       localStorage.removeItem(LOCALSTORAGE_KEY);
-      // inputObject = {};
+       inputObject = {};
     } else {
       alert(' Поля повинні бути заповнені');
     }
@@ -36,8 +38,14 @@ function onInput(event) {
   
 
 
-
-
+function savedDataInput(event) {
+  const savedData = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
+  if (savedData) {
+    emailElement.value = savedData.email;
+    massageElement.value = savedData.message;
+    inputObject = savedData;
+  }
+}
 
 
 
