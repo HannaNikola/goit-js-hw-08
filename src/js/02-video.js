@@ -19,7 +19,7 @@ player.on('timeupdate', throttle(onPlay, 1000));
 
 
 player
-  .setCurrentTime(localStorage.getItem(LOCALSTORAGE_KEY));
+  .setCurrentTime(localStorage.getItem(LOCALSTORAGE_KEY) || 0);
 
   
 

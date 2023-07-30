@@ -30,7 +30,7 @@ function onSubmit(event) {
 }
 
 function savedDataInput(event) {
-  const savedData = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
+  const savedData = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY) || '');
   if (savedData) {
     emailElement.value = savedData.email;
     massageElement.value = savedData.message;
