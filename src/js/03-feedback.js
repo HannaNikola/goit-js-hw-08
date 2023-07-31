@@ -1,4 +1,4 @@
-  import throttle from 'lodash.throttle';
+import throttle from 'lodash.throttle';
 
 const formElement = document.querySelector('.feedback-form');
 const emailElement = document.querySelector('input');
@@ -6,13 +6,17 @@ const massageElement = document.querySelector('textarea');
 const buttonElement = document.querySelector('button');
 
 const LOCALSTORAGE_KEY = 'feedback-form-state';
-let inputObject = {};
+let inputObject = {
+  email: '',
+  message: '',
+};
 
 formElement.addEventListener('input', throttle(onInput, 1000));
 formElement.addEventListener('submit', onSubmit);
 
 function onInput(event) {
   inputObject[event.target.name] = event.target.value;
+  console.log(inputObject);
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(inputObject));
 }
 
@@ -35,6 +39,7 @@ function savedDataInput(event) {
     emailElement.value = savedData.email;
     massageElement.value = savedData.message;
     inputObject = savedData;
-  } 
+
+  }
 }
 savedDataInput();
