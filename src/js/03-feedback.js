@@ -35,9 +35,6 @@ function savedDataInput(event) {
     emailElement.value = savedData.email;
     massageElement.value = savedData.message;
     inputObject = savedData;
-  } else {
-    inputObject = '';
-  }
+  } 
 }
-
 savedDataInput();
